@@ -1,0 +1,32 @@
+package MethodsOfWebelement;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Rectangle;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GetRectMethod {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	      System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+	      WebDriver driver=new ChromeDriver();
+	      driver.manage().window().maximize();
+	      driver.get("https://demo.actitime.com/login.do");
+	      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	      WebElement element = driver.findElement(By.cssSelector("a[id='loginButton']"));
+	      Rectangle rect = element.getRect();
+	      int xaxis = rect.getX();
+	      int yaxis = rect.getY();
+	      int height = rect.getHeight();
+	      int width=rect.getWidth();
+	      System.out.println(xaxis);
+	      System.out.println(yaxis);
+	      System.out.println(height);
+	      System.out.println(width);
+	}
+
+}
